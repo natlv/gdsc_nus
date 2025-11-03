@@ -10,6 +10,8 @@ const excoMembers: Member[] = [
   { name: "John Doe", role: "Frontend Lead", img: "/team/john.png" },
   { name: "Emily Wang", role: "Backend Lead", img: "/team/emily.png" },
   { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+  { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+  { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
 ];
 
 /* ----------- INTERNAL TEAMS ----------- */
@@ -18,15 +20,25 @@ const internalTeams = {
     { name: "Ava Lim", role: "Brand Designer", img: "/team/sarah.png" },
     { name: "Marcus Lee", role: "Content Strategist", img: "/team/michael.png" },
     { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   "Operations + Treasurer": [
     { name: "Daniel Ng", role: "Operations Lead", img: "/team/john.png" },
     { name: "Ivy Chua", role: "Treasurer", img: "/team/sarah.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   "Partnerships + Technology": [
     { name: "Ravi Kumar", role: "Partnerships Lead", img: "/team/michael.png" },
     { name: "Emily Wang", role: "Tech Lead", img: "/team/emily.png" },
     { name: "John Doe", role: "Full-stack Dev", img: "/team/john.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
   ],
 } as const;
 type InternalTeamKey = keyof typeof internalTeams;
@@ -36,22 +48,42 @@ const externalTeams = {
   "Caring for Life": [
     { name: "Grace Tan", role: "Volunteer Coord.", img: "/team/sarah.png" },
     { name: "Hafiz Rahman", role: "Field Ops", img: "/team/john.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   "Action for Singapore Dogs (ASD)": [
     { name: "Yuki Chen", role: "Adoptions Lead", img: "/team/emily.png" },
     { name: "Ben Teo", role: "Outreach", img: "/team/michael.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   ItsRainingRaincoats: [
     { name: "Arun Kumar", role: "Partnerships", img: "/team/john.png" },
     { name: "Sara Ali", role: "Campaigns", img: "/team/sarah.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   SiloamXperience: [
     { name: "Miguel Cruz", role: "Programs", img: "/team/michael.png" },
     { name: "Lena Lau", role: "Logistics", img: "/team/emily.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
   "The Volunteer Switchboard": [
     { name: "Priya Das", role: "Community", img: "/team/sarah.png" },
     { name: "Ken Wong", role: "Platform Ops", img: "/team/john.png" },
+    { name: "Nina Khoo", role: "Social Lead", img: "/team/emily.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" },
+    { name: "Michael Brown", role: "Marketing Lead", img: "/team/michael.png" }
   ],
 } as const;
 type ExternalTeamKey = keyof typeof externalTeams;
@@ -91,9 +123,11 @@ export default function TeamPage() {
             The group that forms the backbone and oversees all projects and events.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
-            {excoMembers.map((person, i) => (
-              <MemberCard key={`exco-${person.name}-${i}`} {...person} />
+          <div className="mt-8 grid grid-cols-6 gap-6 justify-items-center">
+            {Object.entries(excoMembers).map(([role, person], i) => (
+              <div key={`exco-${person.name}-${i}`}>
+                <MemberCard {...person} />
+              </div>
             ))}
           </div>
         </section>
@@ -104,7 +138,7 @@ export default function TeamPage() {
             type="button"
             className={`pointer-events-auto px-6 py-2 rounded-lg transition ${
               activeTeam === "internal"
-                ? "bg-blue-600 text-white"
+                ? "bg-[#6A8DFF] text-white shadow-md"
                 : "bg-slate-200 hover:bg-slate-300"
             }`}
             onClick={() => {
@@ -120,7 +154,7 @@ export default function TeamPage() {
             type="button"
             className={`pointer-events-auto px-6 py-2 rounded-lg transition ${
               activeTeam === "external"
-                ? "bg-blue-600 text-white"
+                ? "bg-[#6A8DFF] text-white shadow-md"
                 : "bg-slate-200 hover:bg-slate-300"
             }`}
             onClick={() => {
@@ -151,7 +185,7 @@ export default function TeamPage() {
                 }}
                 className={`pointer-events-auto px-4 py-1 rounded-full transition ${
                   name === activeGroupName
-                    ? "bg-blue-600 text-white"
+                    ? "bg-blue-200 text-black shadow-sm"
                     : "bg-slate-200 text-slate-700 hover:bg-slate-300"
                 }`}
                 aria-pressed={name === activeGroupName}
@@ -169,14 +203,19 @@ export default function TeamPage() {
           </p>
 
           {/* Members */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
-            {activeMembers.map((person, idx) => (
-              <MemberCard
-                key={`${activeTeam}-${activeGroupName}-${person.name}-${idx}`}
-                {...person}
-              />
-            ))}
+          <div className="overflow-x-auto whitespace-nowrap py-2">
+            <div className="flex gap-6 min-w-max">
+              {activeMembers.map((person, idx) => (
+                <div
+                  key={`${activeTeam}-${activeGroupName}-${person.name}-${idx}`}
+                  className="shrink-0 w-40"
+                >
+                  <MemberCard {...person} />
+                </div>
+              ))}
+            </div>
           </div>
+
         </section>
       </main>
 
