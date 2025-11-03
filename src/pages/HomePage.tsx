@@ -267,11 +267,11 @@ function Testimonials() {
 
 function Partners() {
   const logos = [
-    { src: "/partners/volunteer.png", alt: "Volunteer Switchboard" },
-    { src: "/partners/siloam.png", alt: "SiloamXperience" },
-    { src: "/partners/itsraining.png", alt: "ItsRainingRaincoats" },
-    { src: "/partners/caring.png", alt: "Caring for Life" },
-    { src: "/partners/asd.png", alt: "Action for Singapore Dogs" },
+    { src: "/volunteer_switchboard.png", alt: "Volunteer Switchboard" },
+    { src: "/siloamxperience.png", alt: "SiloamXperience" },
+    { src: "/itsraining.png", alt: "ItsRainingRaincoats" },
+    { src: "/caringforlife.png", alt: "Caring for Life" },
+    { src: "/actionforsingapore.png", alt: "Action for Singapore Dogs" },
   ];
 
   return (
@@ -322,7 +322,7 @@ function Hero() {
           <div className="overflow-hidden rounded-3xl w-full max-w-md">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
-              alt="GDSC NUS Team"
+              alt="© 2025 DG NUS. All rights reserved."
               className="h-80 w-full object-cover"
             />
           </div>
@@ -686,8 +686,7 @@ function Footer() {
         <div className="inline-flex items-center gap-3">
           <GdscDots />
           <div>
-            <div className="font-semibold">GDSC NUS</div>
-            <div className="text-xs text-slate-500">#TECHFORGOOD</div>
+            <div className="font-inter font-normal">© 2025 DG NUS. All rights reserved.</div>
           </div>
         </div>
         <small className="text-slate-400">
