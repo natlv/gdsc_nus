@@ -1,28 +1,9 @@
+import { Link } from "react-router-dom";
 import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
+import { projects } from "../data/projects";
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      title: "Campus Navigator App",
-      description:
-        "An intuitive map app to help new students navigate the NUS campus with ease.",
-      image: "/project1.png",
-    },
-    {
-      title: "Sustainability Tracker",
-      description:
-        "A tool used to promote sustainable practices among students on campus.",
-      image: "/project2.png",
-    },
-    {
-      title: "AI-Powered Tutor",
-      description:
-        "A personal learning assistant for students, powered by Google's AI technologies.",
-      image: "/project3.png",
-    },
-  ];
-
   return (
     <div className="min-h-dvh bg-white text-slate-900">
       <SiteHeader />
@@ -44,12 +25,12 @@ export default function ProjectsPage() {
               <div className="p-5">
                 <h3 className="font-semibold">{p.title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{p.description}</p>
-                <a
-                  href="#details"
+                <Link
+                  to={`/projects/${p.slug}`}
                   className="mt-3 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-400"
                 >
                   View Details →
-                </a>
+                </Link>
               </div>
             </article>
           ))}

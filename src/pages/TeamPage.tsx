@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
