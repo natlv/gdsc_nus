@@ -29,7 +29,7 @@ function Hero() {
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center">
         <div>
           <h1 className="text-5xl tracking-tight md:text-7xl lg:text-5xl">
-            <span className="bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-500 via-emerald-500 to-amber-400 bg-clip-text text-transparent">
               Build. Learn. Connect
             </span>
           </h1>
@@ -74,7 +74,7 @@ function About() {
         {/* Our Mission */}
         <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center">
                 <svg
                   className="w-7 h-7 text-white"
@@ -106,7 +106,7 @@ function About() {
         {/* Our Vision */}
         <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="w-14 h-14 rounded-2xl bg-purple-500 flex items-center justify-center">
                 <svg
                   className="w-7 h-7 text-white"
@@ -284,7 +284,7 @@ function Community() {
           ref={scrollerRef}
           className="scroll-smooth overflow-x-auto px-12 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
-          <div className="grid grid-flow-col gap-6 snap-x snap-mandatory auto-cols-[85%] md:[grid-auto-columns:calc((100%-24px*2)/3)]">
+          <div className="grid grid-flow-col gap-6 snap-x snap-mandatory auto-cols-[85%] md:auto-cols-[calc((100%-24px*2)/3)]">
             {items.map((it) => (
               <div
                 key={it.id}
