@@ -3,40 +3,84 @@ import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
 import DontMissOutSection from "../components/DontMissOutSection";
 
-export default function EventsPage() {
-  const pastEvents = [
-    {
-      year: "AY 24/25",
-      yearParam: "ay2425",
-      image: "/src/assets/events/ay2425.jpg",
-      clickable: true,
-    },
-    {
-      year: "AY 22/23",
-      yearParam: "ay2223",
-      image: "/src/assets/events/ay2223.png",
-      clickable: false,
-    },
-    {
-      year: "AY 20/21",
-      yearParam: "ay2021",
-      image: "/src/assets/events/ay2021.png",
-      clickable: false,
-    },
-    {
-      year: "AY 23/24",
-      yearParam: "ay2324",
-      image: "/src/assets/events/ay2324.jpg",
-      clickable: false,
-    },
-    {
-      year: "AY 21/22",
-      yearParam: "ay2122",
-      image: "/src/assets/events/ay2122.png",
-      clickable: false,
-    },
-  ];
+const pastEvents = [
+  {
+    year: "AY 24/25",
+    yearParam: "ay2425",
+    image: "/src/assets/events/ay2425.jpg",
+    clickable: true,
+  },
+  {
+    year: "AY 22/23",
+    yearParam: "ay2223",
+    image: "/src/assets/events/ay2223.png",
+    clickable: false,
+  },
+  {
+    year: "AY 20/21",
+    yearParam: "ay2021",
+    image: "/src/assets/events/ay2021.png",
+    clickable: false,
+  },
+  {
+    year: "AY 23/24",
+    yearParam: "ay2324",
+    image: "/src/assets/events/ay2324.jpg",
+    clickable: false,
+  },
+  {
+    year: "AY 21/22",
+    yearParam: "ay2122",
+    image: "/src/assets/events/ay2122.png",
+    clickable: false,
+  },
+];
 
+function EventCard({
+  event,
+}: {
+  event: (typeof pastEvents)[number];
+}) {
+  const cardInner = (
+    <div
+      className={`rounded-2xl overflow-hidden shadow-lg group ${
+        event.clickable ? "hover:shadow-xl transition-all" : ""
+      }`}
+    >
+      <img
+        src={event.image}
+        alt={event.year}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-4 bg-white">
+        <h3
+          className={`text-center font-bold ${
+            event.clickable
+              ? "text-slate-900 group-hover:text-blue-600 transition-colors"
+              : "text-slate-900"
+          }`}
+        >
+          {event.year}
+        </h3>
+      </div>
+    </div>
+  );
+
+  if (event.clickable) {
+    return (
+      <NavLink
+        to={`/events/${event.yearParam}`}
+        className="block cursor-pointer"
+      >
+        {cardInner}
+      </NavLink>
+    );
+  }
+
+  return <div className="block">{cardInner}</div>;
+}
+
+export default function EventsPage() {
   return (
     <div className="min-h-dvh bg-white text-slate-900">
       <SiteHeader />
@@ -62,7 +106,8 @@ export default function EventsPage() {
                   Hack4Good Hackathon
                 </h3>
                 <p className="mt-2 text-slate-600">
-                  DSC NUS's premier social impact hackathon - Build solutions for real-world challenges
+                  DSC NUS's premier social impact hackathon - Build solutions
+                  for real-world challenges
                 </p>
                 <p className="mt-4 text-sm font-semibold text-blue-600">
                   Learn more →
@@ -76,107 +121,17 @@ export default function EventsPage() {
 
         <div className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {pastEvents.slice(0, 3).map((event, i) => {
-              const Component = event.clickable ? NavLink : "div";
-              const props = event.clickable
-                ? { to: `/events/${event.yearParam}`, className: "block cursor-pointer" }
-                : { className: "block" };
-
-              return (
-                <Component key={i} {...props}>
-                  <div
-                    className={`rounded-2xl overflow-hidden shadow-lg group ${
-                      event.clickable ? "hover:shadow-xl transition-all" : ""
-                    }`}
-                  >
-                    <img
-                      src={event.image}
-                      alt={event.year}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4 bg-white">
-                      <h3 className={`text-center font-bold ${
-                        event.clickable
-                          ? "text-slate-900 group-hover:text-blue-600 transition-colors"
-                          : "text-slate-900"
-                      }`}>
-                        {event.year}
-                      </h3>
-                    </div>
-                  </div>
-                </Component>
-              );
-            })}
+            {pastEvents.slice(0, 3).map((event, i) => (
+              <EventCard key={i} event={event} />
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-start-1 md:col-end-2 md:translate-x-1/2">
-              {(() => {
-                const event = pastEvents[3];
-                const Component = event.clickable ? NavLink : "div";
-                const props = event.clickable
-                  ? { to: `/events/${event.yearParam}`, className: "block cursor-pointer" }
-                  : { className: "block" };
-
-                return (
-                  <Component {...props}>
-                    <div
-                      className={`rounded-2xl overflow-hidden shadow-lg group ${
-                        event.clickable ? "hover:shadow-xl transition-all" : ""
-                      }`}
-                    >
-                      <img
-                        src={event.image}
-                        alt={event.year}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-4 bg-white">
-                        <h3 className={`text-center font-bold ${
-                          event.clickable
-                            ? "text-slate-900 group-hover:text-blue-600 transition-colors"
-                            : "text-slate-900"
-                        }`}>
-                          {event.year}
-                        </h3>
-                      </div>
-                    </div>
-                  </Component>
-                );
-              })()}
+              <EventCard event={pastEvents[3]} />
             </div>
             <div className="md:col-start-3 md:col-end-4 md:-translate-x-1/2">
-              {(() => {
-                const event = pastEvents[4];
-                const Component = event.clickable ? NavLink : "div";
-                const props = event.clickable
-                  ? { to: `/events/${event.yearParam}`, className: "block cursor-pointer" }
-                  : { className: "block" };
-
-                return (
-                  <Component {...props}>
-                    <div
-                      className={`rounded-2xl overflow-hidden shadow-lg group ${
-                        event.clickable ? "hover:shadow-xl transition-all" : ""
-                      }`}
-                    >
-                      <img
-                        src={event.image}
-                        alt={event.year}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-4 bg-white">
-                        <h3 className={`text-center font-bold ${
-                          event.clickable
-                            ? "text-slate-900 group-hover:text-blue-600 transition-colors"
-                            : "text-slate-900"
-                        }`}>
-                          {event.year}
-                        </h3>
-                      </div>
-                    </div>
-                  </Component>
-                );
-              })()}
+              <EventCard event={pastEvents[4]} />
             </div>
           </div>
         </div>
