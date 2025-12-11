@@ -47,8 +47,10 @@ export default function SiteHeader() {
         </div>
 
         <a
-          href="#join"
-          className="inline-flex items-center rounded-full bg-blue-500 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-600"
+          href="https://t.me/dscnus"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-600"
         >
           Join Upcoming Events
         </a>

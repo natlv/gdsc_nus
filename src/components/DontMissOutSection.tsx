@@ -10,7 +10,9 @@ export default function DontMissOutSection() {
       </p>
       <div className="flex justify-center">
         <a
-          href="#join"
+          href="https://t.me/dscnus"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block rounded-full bg-white border-2 border-blue-500 px-6 py-3 text-sm font-semibold text-blue-500 hover:bg-blue-50 transition-colors"
         >
           Join Upcoming Events
