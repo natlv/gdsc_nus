@@ -24,7 +24,7 @@ export default function ProjectsPage() {
               </div>
               <div className="p-5">
                 <h3 className="font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{p.description}</p>
+                <p className="mt-2 text-sm text-slate-600">{p.summary}</p>
                 <Link
                   to={`/projects/${p.slug}`}
                   className="mt-3 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-400"
