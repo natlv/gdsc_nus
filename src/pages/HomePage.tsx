@@ -284,28 +284,9 @@ function Events() {
 }
 
 /* --------------------------- PROJECTS --------------------------- */
-function Projects() {
-  const projects = [
-    {
-      title: "Campus Navigator App",
-      description:
-        "An intuitive map app to help new students navigate the NUS campus with ease.",
-      image: "/project1.png",
-    },
-    {
-      title: "Sustainability Tracker",
-      description:
-        "A tool used to promote sustainable practices among students on campus.",
-      image: "/project2.png",
-    },
-    {
-      title: "AI-Powered Tutor",
-      description:
-        "A personal learning assistant for students, powered by Google's AI technologies.",
-      image: "/project3.png",
-    },
-  ];
+import { projects } from "../data/projects";
 
+function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-10">
       <h2 className="text-2xl font-semibold text-center">Our Projects</h2>
@@ -315,24 +296,24 @@ function Projects() {
             key={i}
             className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
           >
-            <div className="aspect-video overflow-hidden">
+            <div className="aspect-video overflow-hidden border-b border-slate-100 bg-white p-4 flex items-center justify-center">
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="p-5">
               <h3 className="font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">
-                {project.description}
+              <p className="mt-2 text-sm text-slate-600 line-clamp-3">
+                {project.summary}
               </p>
-              <a
-                href="#details"
+              <NavLink
+                to={`/projects/${project.slug}`}
                 className="mt-3 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-400"
               >
                 View Details →
-              </a>
+              </NavLink>
             </div>
           </article>
         ))}
