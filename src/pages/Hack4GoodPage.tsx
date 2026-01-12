@@ -146,7 +146,7 @@ export default function Hack4GoodPage() {
                   className={`group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm ${opp.className
                     }`}
                 >
-                  <div className="flex flex-col items-center text-center h-full">
+                  <div className="flex flex-col items-start text-left h-full">
                     {/* Image Container - Bigger */}
                     <div className="h-40 w-full flex items-center justify-center mb-6 overflow-hidden rounded-xl bg-slate-50 border border-slate-100/50">
                       <img src={opp.image} alt="" className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-110" />
@@ -179,18 +179,18 @@ function SponsorsSection() {
     {
       name: "SGInnovate",
       logo: "/sponsors/sg_innovate.png",
-      description: "SGInnovate supports the growth of deep-tech startups in Singapore by connecting founders with talent, capital, and global networks, helping transform breakthrough research into real-world impact.",
+      description: "SGInnovate plays a central role in Singapore’s deep-tech ecosystem by supporting startups built on strong scientific and engineering foundations. It works closely with researchers, founders, and industry partners to provide access to talent, funding, and global networks, helping promising technologies move from research to real-world deployment.",
     },
     {
       name: "OSCAR Fund (in partnership with Temasek Foundation)",
       isDual: true,
       logos: ["/sponsors/OSCAR.jpg", "/sponsors/Temasek Foundation.jpg"],
-      description: "The OSCAR Fund, in partnership with Temasek Foundation, backs initiatives that empower communities and nurture future-ready talent, with a strong focus on education, technology, and social impact.",
+      description: "The OSCAR Fund, in partnership with Temasek Foundation, supports initiatives that strengthen communities and develop future-ready capabilities. Their work spans education, technology, and innovation, with a focus on empowering individuals, fostering inclusive growth, and creating sustainable, long-term social impact.",
     },
     {
       name: "Titansoft",
       logo: "/sponsors/Titansoft.png",
-      description: "Titansoft is a leading software company known for building high-performance, user-centric digital products, with a strong engineering culture focused on innovation, scalability, and craftsmanship.",
+      description: "Titansoft is a product-driven software company that designs and builds large-scale, high-traffic digital platforms. Known for its strong engineering culture, Titansoft emphasizes clean code, system reliability, and continuous learning, encouraging engineers to solve complex problems and build products that scale globally.",
     },
   ];
 
@@ -198,12 +198,12 @@ function SponsorsSection() {
     {
       name: "Jane Street",
       logo: "/sponsors/jane_street.png",
-      description: "Jane Street is a global quantitative trading firm that applies advanced mathematics, data, and technology to solve complex problems in financial markets.",
+      // Description removed as per request
     },
   ];
 
   const SponsorCard = ({ sponsor }: { sponsor: any }) => (
-    <div className="flex flex-col items-center text-center">
+    <div className="flex flex-col items-start text-left">
       <div className="h-32 w-full flex items-center justify-center p-4 bg-white rounded-xl mb-4">
         {sponsor.isDual ? (
           <div className="flex items-center gap-4 h-full">
