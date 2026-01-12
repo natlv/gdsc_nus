@@ -127,8 +127,7 @@ export default function Hack4GoodPage() {
                 to create technology solutions for real-world social and environmental challenges.
               </p>
               <p>
-                In this 24-hour sprint, teams of 2-5 students will build innovative projects
-                addressing education, sustainability, healthcare, and community resilience.
+                Over the course of this hackathon, students develop innovative projects as solutions to real-life challenges experienced by Non-Profit Organizations.
               </p>
             </div>
           </section>

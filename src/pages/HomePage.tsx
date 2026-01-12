@@ -259,24 +259,6 @@ function Events() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3">
-            <a
-              href="https://forms.office.com/r/ZC4C6pLAVd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full rounded-full bg-blue-500 px-6 py-3 text-center text-sm font-semibold text-white shadow hover:bg-blue-400"
-            >
-              Register (Form 1)
-            </a>
-            <a
-              href="https://bit.ly/4rYnvdZ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-white shadow hover:bg-emerald-400"
-            >
-              Register (Form 2)
-            </a>
-          </div>
         </article>
       </div>
     </section>
